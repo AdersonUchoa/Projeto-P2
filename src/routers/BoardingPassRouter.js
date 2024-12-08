@@ -5,7 +5,7 @@ const { authetincateToken } = require("../middleware/Auth");
 
 router.get("/boardingpass", authetincateToken, BoardingPassController.getBoardingPass);
 router.post("/boardingpass", authetincateToken, BoardingPassController.postBoardingPass);
-router.put("/boardingpass/:codigo", authetincateToken, BoardingPassController.putBoardingPass);
-router.delete("/boardingpass/:codigo", authetincateToken, BoardingPassController.deleteBoardingPass);
+router.put("/boardingpass/:boarding_pass_id", authetincateToken, BoardingPassController.putBoardingPass);
+router.delete("/boardingpass/:boarding_pass_id", authetincateToken, BoardingPassController.deleteBoardingPass);
 
 module.exports = router;

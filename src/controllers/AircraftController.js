@@ -26,9 +26,9 @@ class AircraftController {
 
     async putAircraft(req, res) {
         try {
-            const { id } = req.params;
+            const { aircraft_id } = req.params;
             const { model, manufacturer, capacity } = req.body;
-            const result = await this.aircraftService.putAircraft(id, model, manufacturer, capacity);
+            const result = await this.aircraftService.putAircraft(aircraft_id, model, manufacturer, capacity);
             res.status(result.code).json(result);
         } catch (error) {
             res.status(error.code || 500).json({ message: error.message || "Erro interno do servidor" });
@@ -37,8 +37,8 @@ class AircraftController {
 
     async deleteAircraft(req, res) {
         try {
-            const { id } = req.params;
-            const result = await this.aircraftService.deleteAircraft(id);
+            const { aircraft_id } = req.params;
+            const result = await this.aircraftService.deleteAircraft(aircraft_id);
             res.status(result.code).json(result);
         } catch (error) {
             res.status(error.code || 500).json({ message: error.message || "Erro interno do servidor" });
