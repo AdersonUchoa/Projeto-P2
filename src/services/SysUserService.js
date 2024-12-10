@@ -87,4 +87,4 @@ class SysUserService {
     }
 }
 
-module.exports = SysUserService;
+module.exports = new SysUserService();

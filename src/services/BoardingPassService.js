@@ -90,4 +90,4 @@ class BoardingPassService{
     }
 }
 
-module.exports = BoardingPassService;
+module.exports = new BoardingPassService();

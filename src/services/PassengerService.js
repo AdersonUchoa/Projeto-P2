@@ -88,4 +88,4 @@ class PassengerService {
     }
 }
 
-module.exports = PassengerService;
+module.exports = new PassengerService();

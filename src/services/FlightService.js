@@ -89,4 +89,4 @@ class FlightService {
     }
 }
 
-module.exports = FlightService;
+module.exports = new FlightService();

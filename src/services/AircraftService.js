@@ -103,4 +103,4 @@ class AircraftService {
     }
 }
 
-module.exports = AircraftService;
+module.exports = new AircraftService();
