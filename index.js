@@ -1,11 +1,22 @@
 const express = require("express");
 const sequelize = require("./src/database/database");
-const AircraftRouter = require("./src/routers/AircraftRouter");
 const app = express();
 const PORT = 3000;
 
-app.use(express.json());
+const AircraftRouter = require("./src/routers/AircraftRouter");
+const BoardingPassRouter = require("./src/routers/BoardingPassRouter");
+const FlightRouter = require("./src/routers/FlightRouter");
+const PassengerRouter = require("./src/routers/PassengerRouter");
+const SysUserRouter = require("./src/routers/SysUserRouter");
+
 app.use(AircraftRouter);
+app.use(BoardingPassRouter);
+app.use(FlightRouter);
+app.use(PassengerRouter);
+app.use(SysUserRouter);
+
+app.use(express.json());
+
 
 // Rota para a raiz
 app.get("/", (req, res) => {

@@ -1,8 +1,24 @@
-module.exports = class Passenger {
-    constructor(first_name, last_name, birth_date, passport_number) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.birth_date = birth_date;
-        this.passport_number = passport_number;
-    }
-}
+const { DataTypes } = require("sequelize");
+const sequelize = require("../database/database");
+
+const Passenger = sequelize.define("Passenger", {
+    first_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    last_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    birth_date: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
+    passport_number: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+});
+
+module.exports = Passenger;
+

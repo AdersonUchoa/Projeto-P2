@@ -1,8 +1,23 @@
-module.exports = class Boarding_pass {
-    constructor(seat_number, passenger_id, flight_id, issue_time) {
-        this.seat_number = seat_number;
-        this.passenger_id = passenger_id;
-        this.flight_id = flight_id;
-        this.issue_time = issue_time;
-    }
-}
+const { DataTypes } = require("sequelize");
+const sequelize = require("../database/database");
+
+const Boarding_pass = sequelize.define("Boarding_pass", {
+    seat_number: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    passenger_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    flight_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    issue_time: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
+});
+
+module.exports = Boarding_pass;

@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const BoardingPassController = require("../controllers/BoardingPassController");
-const { authetincateToken } = require("../middleware/Auth");
 
-router.get("/boardingpass", authetincateToken, BoardingPassController.getBoardingPass);
-router.post("/boardingpass", authetincateToken, BoardingPassController.postBoardingPass);
-router.put("/boardingpass/:boarding_pass_id", authetincateToken, BoardingPassController.putBoardingPass);
-router.delete("/boardingpass/:boarding_pass_id", authetincateToken, BoardingPassController.deleteBoardingPass);
+router.get("/boardingpass", BoardingPassController.getBoardingPass.bind(BoardingPassController));
+router.post("/boardingpass", BoardingPassController.postBoardingPass.bind(BoardingPassController));
+router.put("/boardingpass/:boarding_pass_id", BoardingPassController.putBoardingPass.bind(BoardingPassController));
+router.delete("/boardingpass/:boarding_pass_id", BoardingPassController.deleteBoardingPass.bind(BoardingPassController));
 
 module.exports = router;
