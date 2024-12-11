@@ -2,11 +2,11 @@ const { Sequelize } = require("sequelize");
 
 // const sequelize = new Sequelize({
 //     dialect: 'postgres',
-//     host: 'aD0MisYhNI6b@ep-shiny-scene-a576hqzm.us-east-2.aws.neon.tech',
+//     host: 'localhost',
 //     port: 5432,
-//     username: 'bancop2_owner',
-//     password: 'aD0MisYhNI6b',
-//     database: 'bancop2',
+//     username: 'user',
+//     password: '123',
+//     database: 'demo_flight',
 //     logging: false,
 //     define: {
 //         timestamps: false,
