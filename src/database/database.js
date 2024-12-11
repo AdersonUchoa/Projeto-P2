@@ -1,4 +1,5 @@
 const { Sequelize } = require("sequelize");
+require("dotenv").config();
 
 // const sequelize = new Sequelize({
 //     dialect: 'postgres',
@@ -14,7 +15,8 @@ const { Sequelize } = require("sequelize");
 // });
 
 const sequelize = new Sequelize(
-  "postgresql://bancop2_owner:aD0MisYhNI6b@ep-shiny-scene-a576hqzm.us-east-2.aws.neon.tech/bancop2?sslmode=require",
+  // "postgresql://bancop2_owner:aD0MisYhNI6b@ep-shiny-scene-a576hqzm.us-east-2.aws.neon.tech/bancop2?sslmode=require",
+  process.env.CONNECTION_DB,
   {
     pool: {
       max: 10,

@@ -1,8 +1,9 @@
 const { QueryTypes } = require("sequelize");
 const sequelize = require("../database/database");
-const LoginRequest = require("../DTO/postLoginRequest");
+const LoginRequest = require("../DTO/Request/postLoginRequest");
 const ResponseModel = require("../models/ResponseModel");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 class AuthService {
   async postLogin(req, res) {
@@ -23,7 +24,7 @@ class AuthService {
         login_email: user.login_email,
         user_type: user.user_type,
       };
-      return jwt.sign(tokenObj, "senha", { expiresIn: 300 });
+      return jwt.sign(tokenObj, process.env.JWT_SECURE, { expiresIn: 300 });
     }
     return null;
   }
