@@ -1,13 +1,8 @@
-const AircraftService = require('../services/AircraftService');
-
+const AircraftService = require("../services/AircraftService"); 
 class AircraftController {
-    constructor() {
-        this.aircraftService = new AircraftService();
-    }
-
     async getAircraft(req, res) {
         try {
-            const result = await this.aircraftService.getAircraft();
+            const result = await AircraftService.getAircraft();
             res.status(result.code).json(result);
         } catch (error) {
             res.status(error.code || 500).json({ message: error.message || "Erro interno do servidor" });
@@ -17,7 +12,7 @@ class AircraftController {
     async postAircraft(req, res) {
         try {
             const { model, manufacturer, capacity } = req.body;
-            const result = await this.aircraftService.postAircraft(model, manufacturer, capacity);
+            const result = await AircraftService.postAircraft(model, manufacturer, capacity);
             res.status(result.code).json(result);
         } catch (error) {
             res.status(error.code || 500).json({ message: error.message || "Erro interno do servidor" });
@@ -28,7 +23,7 @@ class AircraftController {
         try {
             const { aircraft_id } = req.params;
             const { model, manufacturer, capacity } = req.body;
-            const result = await this.aircraftService.putAircraft(aircraft_id, model, manufacturer, capacity);
+            const result = await AircraftService.putAircraft(aircraft_id, model, manufacturer, capacity);
             res.status(result.code).json(result);
         } catch (error) {
             res.status(error.code || 500).json({ message: error.message || "Erro interno do servidor" });
@@ -38,7 +33,7 @@ class AircraftController {
     async deleteAircraft(req, res) {
         try {
             const { aircraft_id } = req.params;
-            const result = await this.aircraftService.deleteAircraft(aircraft_id);
+            const result = await AircraftService.deleteAircraft(aircraft_id);
             res.status(result.code).json(result);
         } catch (error) {
             res.status(error.code || 500).json({ message: error.message || "Erro interno do servidor" });
