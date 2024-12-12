@@ -1,12 +1,14 @@
 const sequelize = require('../database/database');
+const PassengerResponse = require("../DTO/Response/PassengerResponse");
 
 class PassengerService {
     async getPassenger() {
         try {
-            const [results, metadata] = await sequelize.query("SELECT * FROM passenger");
+            const [results] = await sequelize.query("SELECT * FROM passenger");
+            const response = results.map(PassengerResponse.fromModel);
             return {
                 code: 200,
-                data: results,
+                data: response,
                 message: "Passageiros(as) obtidos(as) com sucesso!",
             };
         } catch (error) {

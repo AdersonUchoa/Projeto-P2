@@ -1,12 +1,14 @@
 const sequelize = require('../database/database');
+const FlightResponse = require("../DTO/Response/FlightResponse");
 
 class FlightService {
     async getFlight() {
         try {
             const [results] = await sequelize.query("SELECT * FROM flight");
+            const response = results.map(FlightResponse.fromModel);
             return {
                 code: 200,
-                data: results,
+                data: response,
                 message: "Voos obtidos com sucesso!",
             };
         } catch (error) {

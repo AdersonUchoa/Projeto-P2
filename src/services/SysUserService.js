@@ -1,12 +1,14 @@
 const sequelize = require('../database/database');
+const SysUserResponse = require("../DTO/Response/SysUserResponse");
 
 class SysUserService {
     async getSysUser() {
         try {
-            const [results, metadata] = await sequelize.query("SELECT * FROM sys_user");
+            const [results] = await sequelize.query("SELECT * FROM sys_user");
+            const response = results.map(SysUserResponse.fromModel);
             return {
                 code: 200,
-                data: results,
+                data: response,
                 message: "Usuários do sistema obtidos com sucesso!",
             };
         } catch (error) {

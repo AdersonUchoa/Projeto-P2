@@ -1,13 +1,15 @@
 const sequelize = require("../database/database");
+const BoardingPassResponse = require("../DTO/Response/BoardingPassResponse");
 
 class BoardingPassService{
     async getBoardingPass(){
         try{
             const query = 'SELECT * from boarding_pass';
             const [results] = await sequelize.query(query);
+            const response = results.map(BoardingPassResponse.fromModel);
             return {
                 code: 200,
-                data: results,
+                data: response,
                 message: "Cartões de embarque obtidos com sucesso!",
             };
         }catch (error){

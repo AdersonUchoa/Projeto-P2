@@ -7,7 +7,6 @@ class AircraftResponse {
 
   static fromModel(obj) {
     return {
-      //   aircraft_id: obj.aircraft_id,
       model: obj.model,
       manufacturer: obj.manufacturer,
       capacity: obj.capacity,
