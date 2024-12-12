@@ -1,5 +1,5 @@
 const sequelize = require("../database/database");
-const AircraftResponse = require("../DTO/Response/aircraftResponse");
+const AircraftResponse = require("../DTO/Response/AircraftResponse");
 
 class AircraftService {
   async getAircraft() {
