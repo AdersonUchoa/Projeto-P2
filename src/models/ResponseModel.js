@@ -1,7 +1,7 @@
 module.exports = (status, response, message) => {
   return {
     status: status,
-    respose: response,
+    response: response,
     message: message,
   };
 };

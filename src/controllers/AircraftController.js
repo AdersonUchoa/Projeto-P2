@@ -1,13 +1,19 @@
+const MessageModel = require("../models/MessageModel");
+const ResponseModel = require("../models/ResponseModel");
 const AircraftService = require("../services/AircraftService");
 class AircraftController {
   async getAircraft(req, res) {
     try {
       const result = await AircraftService.getAircraft();
-      res.status(result.code).json(result);
+      const response = ResponseModel(
+        200,
+        result,
+        MessageModel.getSucess("avião")
+      );
+      res.status(200).send(response);
     } catch (error) {
-      res
-        .status(error.code || 500)
-        .json({ message: error.message || "Erro interno do servidor" });
+      const response = ResponseModel(404, null, MessageModel.getFail("avião"));
+      res.status(404).send(response);
     }
   }
 
@@ -19,11 +25,15 @@ class AircraftController {
         manufacturer,
         capacity
       );
-      res.status(result.code).json(result);
+      const response = ResponseModel(
+        200,
+        result,
+        MessageModel.postSucess("avião")
+      );
+      res.status(200).send(response);
     } catch (error) {
-      res
-        .status(error.code || 500)
-        .json({ message: error.message || "Erro interno do servidor" });
+      const response = ResponseModel(404, null, MessageModel.postFail("avião"));
+      res.status(404).send(response);
     }
   }
 
@@ -37,11 +47,15 @@ class AircraftController {
         manufacturer,
         capacity
       );
-      res.status(result.code).json(result);
+      const response = ResponseModel(
+        200,
+        result,
+        MessageModel.putSucess("avião")
+      );
+      res.status(200).json(response);
     } catch (error) {
-      res
-        .status(error.code || 500)
-        .json({ message: error.message || "Erro interno do servidor" });
+      const response = ResponseModel(404, null, MessageModel.putFail("avião"));
+      res.status(404).send(response);
     }
   }
 
@@ -49,11 +63,19 @@ class AircraftController {
     try {
       const { aircraft_id } = req.params;
       const result = await AircraftService.deleteAircraft(aircraft_id);
-      res.status(result.code).json(result);
+      const response = ResponseModel(
+        200,
+        result,
+        MessageModel.deleteSucess("avião")
+      );
+      res.status(200).send(response);
     } catch (error) {
-      res
-        .status(error.code || 500)
-        .json({ message: error.message || "Erro interno do servidor" });
+      const response = ResponseModel(
+        404,
+        null,
+        MessageModel.deleteFail("avião")
+      );
+      res.status(404).send(response);
     }
   }
 }
