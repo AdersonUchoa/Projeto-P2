@@ -12,6 +12,7 @@ class AircraftController {
       );
       res.status(200).send(response);
     } catch (error) {
+      console.log(error);
       const response = ResponseModel(404, null, MessageModel.getFail("avião"));
       res.status(404).send(response);
     }

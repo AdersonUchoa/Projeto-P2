@@ -13,6 +13,8 @@ class BoardingPassController {
       );
       res.status(200).send(response);
     } catch (error) {
+      console.log(error);
+
       const response = ResponseModel(
         404,
         null,

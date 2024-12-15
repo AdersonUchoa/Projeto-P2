@@ -1,24 +1,28 @@
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 module.exports = class MessageModel {
   static getSucess(nome) {
-    return `${nome.capitalize()} obtido com sucesso.`;
+    return `${capitalize(nome)} obtido com sucesso.`;
   }
   static getFail(nome) {
     return `Erro ao obter ${nome}.`;
   }
   static postSucess(nome) {
-    return `${nome.capitalize()} adicionado com sucesso.`;
+    return `${capitalize(nome)} adicionado com sucesso.`;
   }
   static postFail(nome) {
     return `Erro ao adicionar o ${nome}.`;
   }
   static putSucess(nome) {
-    return `${nome.capitalize()} editado com sucesso.`;
+    return `${capitalize(nome)} editado com sucesso.`;
   }
   static putFail(nome) {
     return `Erro ao editar o ${nome}.`;
   }
   static deleteSucess(nome) {
-    return `${nome.capitalize()} deletado com sucesso.`;
+    return `${capitalize(nome)} deletado com sucesso.`;
   }
   static deleteFail(nome) {
     return `Erro ao deletar o ${nome}.`;
