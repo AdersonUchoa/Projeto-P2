@@ -3,8 +3,8 @@ const router = express.Router();
 const BoardingPassController = require("../controllers/BoardingPassController");
 const { verifyAuth } = require("../middleware/auth");
 
-router.get("/boarding", verifyAuth, BoardingPassController.getBoarding);
-router.get("/boardingpass", verifyAuth, BoardingPassController.getBoardingPass);
+router.get("/boarding", BoardingPassController.getBoarding);
+router.get("/boardingpass", BoardingPassController.getBoardingPass);
 router.post(
   "/boardingpass",
   verifyAuth,
